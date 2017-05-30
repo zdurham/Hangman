@@ -1,0 +1,29 @@
+h1 {
+	text-align: center;
+	background-color: black !important;
+	color: #ccc !important;
+	font-family: 'Audiowide', cursive;
+	border-top: solid 5px #00FFCD;
+	border-bottom: solid 5px #00FFCD;
+}
+
+h2 {
+	font-family: 'VT323', monospace;
+}
+
+body {
+	background-image: url("../images/escheresque_ste/escheresque_ste.png");
+}
+
+h2 {
+	color: #ccc;
+}
+
+img {
+	width: 100%;
+}
+
+#gameColumn {
+	border: solid 5px #00FFCD;
+	background-color: black;
+}
