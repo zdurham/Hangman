@@ -26,4 +26,9 @@ img {
 #gameColumn {
 	border: solid 5px #00FFCD;
 	background-color: black;
+	padding-bottom: 150px;
+}
+
+#chosenWord {
+	border-bottom: 3px solid #00FFCD;
 }
