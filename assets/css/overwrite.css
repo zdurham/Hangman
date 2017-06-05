@@ -14,7 +14,7 @@ li {
 }
 
 body {
-	background-image: url("../images/escheresque_ste/escheresque_ste.png");
+	background: url("../images/bladerunner_background.jpg");
 }
 
 h2 {
@@ -31,12 +31,26 @@ img {
 	padding-bottom: 150px;
 }
 
-#correctLetters {
+.correctLetters {
 	display: inline-block;
 	width: 20px;
 	border-bottom: 2px #ccc solid;
 	margin: 0 5px;
+	color: black;
+	text-align: center;
+}
 
+.correct {
+	color: white;
+}
+
+#incorrectLetters {
+	display: inline-block;
+	width: 20px;
+	border: 2px #ccc solid;
+	margin: 0 5px;
+	color: white;
+	text-align: center;
+}
 
 	
-}
