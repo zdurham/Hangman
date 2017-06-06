@@ -1,15 +1,14 @@
 // Function will run when page has loaded
 window.onload = function() {
 	//---------- Variables ----------//
-	var words = ["bladerunner", "aliens"];
+	var words = ["bladerunner", "aliens", "tron", "scanners", "dune", "brazil", "robocop", "akira"];
 	var alphabet = "abcdefghijklmnopqrstuvwxyz"
 	var currentWord = words[Math.floor(Math.random() * words.length)];
 	var winCounter = 0; //counts wins
-	var lossCounter = 0; //counts losses
+	var winHolder;
 	var guessBank = []; // Array of incorrect guesses
 	var guessNum = 10; // Actual number of guesses that remain
 	var guessRemain; // Grabs "guessesRemaining"
-	var matches = []; // Array of letters that match
 	var lettersMatched = 0; // Tracks number of matches, when equal to currentWord.length, user wins
 	var correctLetters; // Used to grab Current Word <h2> element
 	var letter; // Used to display letters
@@ -25,6 +24,10 @@ window.onload = function() {
 			letter = "<h2 class='correctLetters' id=l" + i + ">" + currentWord.charAt(i) + "</h2>";
 			correctLetters.insertAdjacentHTML('beforeend', letter)
 		}
+
+		// This bit displays wins
+		winHolder = document.getElementById("wins")
+		winHolder.innerHTML = "<h2>Wins: " + winCounter + "</h2>";
 
 		// This bit displays remaining guesses
 		guessRemain = document.getElementById("guessesRemaining")
@@ -43,10 +46,21 @@ window.onload = function() {
 		}
 
 		else {
-			alert("Game over man! Game over!")
+			aler("Game over man, game over!")
+			
 		}
 
 	}
+
+	//---------- Reset Function ----------//
+	function reset() {
+		guessNum = 10;
+		lettersMatched = 0;
+		guessBank = []
+		currentWord = words[Math.floor(Math.random() * words.length)];
+		setup();
+	}
+
 
 	//---------- Input Function ----------//
 	document.onkeyup = function input() {
@@ -80,7 +94,9 @@ window.onload = function() {
 							showLetter.classList.add("correct")
 							console.log(lettersMatched)
 							if (lettersMatched === currentWord.length) {
-								gameOver(true)
+								gameOver(true);
+								winCounter++;
+								reset();
 							}
 						}			
 					}
@@ -92,6 +108,7 @@ window.onload = function() {
 					guessedLetters.innerHTML += "<h2 id='incorrectLetters'>" + guess + "</h2>";
 					if (guessNum === 0) {
 						gameOver();
+						reset();
 					}
 				}
 			}

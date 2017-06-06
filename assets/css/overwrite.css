@@ -28,7 +28,7 @@ img {
 #gameColumn {
 	border: solid 5px #00FFCD;
 	background-color: black;
-	padding-bottom: 150px;
+	padding-bottom: 100px;
 }
 
 .correctLetters {
@@ -42,6 +42,7 @@ img {
 
 .correct {
 	color: teal;
+	text-transform: uppercase;
 }
 
 #incorrectLetters {
