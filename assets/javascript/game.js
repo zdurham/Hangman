@@ -1,5 +1,5 @@
 //---------- Variables and Setup ----------//
-var words = ["the thing", "bladerunner", "they live", "aliens"];
+var words = ["bladerunner"];
 var currentWord = words[Math.floor(Math.random() * words.length)];
 var correctLetters; // Used to display the letters of currentWord
 var wins = 0; // Tracks wins
@@ -22,6 +22,7 @@ function setup() {
 	for (var i = 0; i < currentWord.length; i++) {
 		correctLetter = "<h2 class='correctLetters' id =" + i + ">" + currentWord.charAt(i) + "</h2>"
 		correctLetters.insertAdjacentHTML('beforeend', correctLetter)
+
 	}
 
 	// Displays remaining guesses
@@ -40,55 +41,35 @@ function setup() {
 function input() {
 	document.onkeyup = function(event) {
 		guess = event.key.toLowerCase();
-		guessValue = false;
 
-		// Check to see if input was a letter
+		// Check to see if input was a letter, if so, carry on
 		if (/^[a-zA-Z]$/.test(guess)) {
 			for (var i = 0; i <= guessBank.length; i++) {
-				if (guess == guessBank[i]) {
-					guessValue = true;
+				if (guess === guessBank[i]) {
 					alert("You've guessed that before");
 					break;
 				}
-			}
-			// Check to see if input is part of the word
-			if (currentWord.indexOf(guess) > -1) {
-				var showLetter
-				showLetter = document.getElementById(i);
 
-				// Changes display to show the letter if it matches
-				for (var i = 0; i < showLetter.length; i++) {
-					showLetter[i].classList.add("correct");
-				}
+				else {
+					
 
-				// Checks for repitition of letter in word
-				for (var j = 0; j < currentWord.length; j++) {
-					if (guess === currentWord.charAt(j)) {
-						lettersMatched += 1;
+					for (var j = 0; j < currentWord.length; j++) {
+						if (guess === currentWord.charAt[j]) {
+							var correct = document.getElementById("correctLetters")
+							correct[j].setAttribute("class", "correct");
+							matchedLetters += guess;
+
+
+						}
+
+						else {
+							guessBank.push(guess)
+						}
 					}
 				}
-
-				// Adds guess to matchedLetters for repititions
-				matchedLetters += guess;
-
 			}
-
-			else {
-				guessBank.push(guess);
-				guessNum--;
-				guessedLetters.innerHTML += "<h2 id=incorrectLetters>" + guess.toUpperCase() + "</h2>";
-				guessRemain.innerHTML = "<h2>You have " + guessNum + " guesses remaining!</h2>";
-
-
-				}
-			
-
 		}
-
-		else {
-			alert("Please select a letter from the keyboard.")
-		}
-	}
+	}	
 }
 
 
