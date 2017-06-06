@@ -36,13 +36,12 @@ img {
 	width: 20px;
 	border-bottom: 2px #ccc solid;
 	margin: 0 5px;
-	/*color: black;*/
+	color: black;
 	text-align: center;
 }
 
 .correct {
-	color: white;
-	background-color: teal;
+	color: teal;
 }
 
 #incorrectLetters {

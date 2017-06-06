@@ -22,7 +22,7 @@ window.onload = function() {
 		correctLetters.innerHTML = "<h2 class='currentWord'>Current Word: </h2>";
 
 		for (var i = 0; i < currentWord.length; i++) {
-			letter = "<h2 class='correctLetters' id='l' " + i + ">" + currentWord.charAt(i) + "</h2>";
+			letter = "<h2 class='correctLetters' id=l" + i + ">" + currentWord.charAt(i) + "</h2>";
 			correctLetters.insertAdjacentHTML('beforeend', letter)
 		}
 
@@ -35,12 +35,32 @@ window.onload = function() {
 		guessedLetters.innerHTML = "<h2>You have guessed: </h2>"
 	}
 
+
 	//---------- Input Function ----------//
 	document.onkeyup = function() {
 		guess = event.key.toLowerCase();
 		oldGuess = false; //This value is used to check if the value has been guessed
 
+		/* Check to make sure the input is a letter first. If yes, then continue with the rest of the function */
+		if (alphabet.indexOf(guess) > -1) {
 
+			// Check if guess is old
+			if ((guessBank.indexOf(guess) > -1) || matchedLetters.indexOf(guess)) 
+
+
+				// Check if guess matches the letters of currentWord
+				for (var i = 0; i < currentWord.length; i++) {
+					if (guess === currentWord[i]) {
+						lettersMatched++;
+						var showLetter = document.getElementById("l" + i)
+						console.log(showLetter)
+						showLetter.classList.add("correct")
+
+					}
+				}
+
+
+		}
 	}
 
 
