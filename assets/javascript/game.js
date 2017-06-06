@@ -159,6 +159,10 @@ window.onload = function() {
 				}
 			}
 		}
+
+		else {
+			alert("Please choose a letter from the keyboard.")
+		}
 	}
 
 
